@@ -1,16 +1,7 @@
-MY CLOSET — PINK GALLERY & CROP UPDATE
+MY CLOSET — PHOTO CROP REPAIR v5
 
-Features:
-- Hot pink visual theme
-- Outfit and Inspiration photo galleries: upload without naming photos
-- Crop new photos before saving
-- Crop already saved photos: open an item or gallery photo, tap Edit, then 'Crop current photo', drag and zoom, tap Use photo, then Save
-- Existing categories and manual iCloud Drive backup/restore retained
+Upload the five files directly to the root of your existing GitHub repository, replacing matching files. Do not upload the containing folder.
 
-IMPORTANT: Automatic iCloud syncing across devices is NOT implemented. A Netlify web app cannot directly use iCloud CloudKit syncing without an Apple-supported authentication/integration setup. Use Settings > Save backup to iCloud Drive, then Restore from backup on the other device. Restoring merges entries by ID.
+Changes: photo loading now uses FileReader to avoid object-URL lifecycle issues; errors are reported; saving waits for successful IndexedDB write before closing the editor. Crop editor retains drag, pinch and zoom slider.
 
-DEPLOY:
-1. On your existing device, save a backup first.
-2. Unzip and deploy the my-closet folder to your EXISTING Netlify site, not a new site.
-3. Reopen the app. Keep the same website origin to preserve device-local data.
-4. Do not delete the Home Screen app or clear website data before backing up.
+IMPORTANT: Please export a backup of your wardrobe before updating. Test with one new photo in Safari. This build has passed JavaScript syntax checks but has not been verified on a physical iPhone.
