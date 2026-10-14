@@ -22,7 +22,7 @@ const defaultCats=['Jackets & Coats','T-Shirts','Tops','Sweatshirts','Sweaters',
  for(let event of ['pointerup','pointercancel','lostpointercapture'])area.addEventListener(event,e=>{pointers.delete(e.pointerId);lastCenter=null;lastDistance=null;gesture()});
  el.querySelector('#cropZoom').oninput=e=>{zoom=Number(e.target.value);draw()};
  el.querySelector('#cropCancel').onclick=()=>{el.remove();reject({cancelled:true})};
- el.querySelector('#cropSave').onclick=()=>{try{draw();const out=document.createElement('canvas');out.width=1600;out.height=1600;out.getContext('2d').imageSmoothingQuality='high';out.getContext('2d').drawImage(canvas,0,0,1600,1600);const data=out.toDataURL('image/jpeg',.92);el.remove();resolve(data)}catch(err){reject(err);el.remove()}};
+ el.querySelector('#cropSave').onclick=()=>{try{draw();const out=document.createElement('canvas');out.width=1600;out.height=1600;const outputCtx=out.getContext('2d');outputCtx.imageSmoothingEnabled=true;outputCtx.imageSmoothingQuality='high';const size=Math.max(1,Math.floor(Math.min(area.clientWidth,area.clientHeight)));const base=Math.max(size/im.naturalWidth,size/im.naturalHeight);const factor=1600/size;const w=im.naturalWidth*base*zoom*factor,h=im.naturalHeight*base*zoom*factor;outputCtx.drawImage(im,(1600-w)/2+ox*factor,(1600-h)/2+oy*factor,w,h);const data=out.toDataURL('image/jpeg',.92);el.remove();resolve(data)}catch(err){reject(err);el.remove()}};
  requestAnimationFrame(draw);
  }catch(err){reject(err)} };reader.readAsDataURL(file);
  });}
