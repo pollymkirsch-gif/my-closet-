@@ -1,1 +1,1 @@
-My Closet v9 — Neutral Cream + Sage Edition. Based on v8 original-quality photo uploads (no crop or zoom). Changes are visual only. Upload the five files directly into the root of the existing GitHub repository. Back up your saved closet first. The app still stores photos locally on each device.
+v10: View saved photos full screen. Tap a photo in item, outfit or inspiration details. Pinch to zoom, drag to pan, use +/- buttons. Original photo upload and saving unchanged. Back up before deployment.
